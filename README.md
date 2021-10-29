@@ -10,18 +10,18 @@ This repo implements the **Decoupled Graph Convolution (DGC)** model, described 
 
 DGC, similar to [SGC](https://github.com/Tiiiger/SGC), removes the nonlinearities and collapes the weight matrices in Graph Convolutional Networks (GCNs) and is essentially a **linear GCN**. 
 
-Motivated by the dissection of SGC's limitations from a continuous perspective, DGC further ***decouples*** the  terminal time $T\in\mathbb{R}$ and propagation steps $K\in\mathbb{N}$ as two free hyperparameters. 
+Motivated by the dissection of SGC's limitations from a continuous perspective, DGC further ***decouples*** the  terminal time **T** and propagation steps **K** as two free hyperparameters. 
 In this way, DGC overcomes SGC's limitations and **improves SGC by a large margin**, making it even comparable to state-of-the-art nonlinear GCNs. Meanwhile, as a linear GCN, DGC is very memory-efficient and saves much training time. 
 
 This repo contains the implementation of DGC for citation networks (Cora, Citeseer, and Pubmed) and the performance (on a single NVIDIA RTX 3090 GPU) is shown below.
 
-Dataset | Acc (%) | $T$ (time) | $K$ (steps) | Training Time
+Dataset | Acc (%) |  **T** (time) | **K** (steps) | Training Time
 :------:|:-----------:|:-------:|:-----------:|:-----------:|
 Cora    |83.3 ± 0.0 | 5.27  | 250 | 0.53s 
 Citeseer|73.3 ± 0.1| 3.78 | 300 | 1.00s 
 Pubmed  |80.3 ± 0.1| 6.05 | 900 | 1.52s
 
-In particular, we can see that DGC could complete Cora/Citeseer training within one second while having very competitive performance. Meanwhile, using a large propagation step, like $K=900$, only brings slight computation overhead.
+In particular, we can see that DGC could complete Cora/Citeseer training within one second while having very competitive performance. Meanwhile, using a large propagation step, like K=900, only brings slight computation overhead.
 
 ## Dependencies
 Our implementation works with PyTorch>=1.0.0 and you can install other dependencies with
