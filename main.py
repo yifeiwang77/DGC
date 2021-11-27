@@ -46,8 +46,7 @@ def main(args):
     model = model.cuda() if args.cuda else model
 
     # train logistic regression and collect test accuracy
-    model, train_time = train(model, features[idx_train], labels[idx_train], features[idx_val], labels[idx_val],
-                    args.epochs, args.weight_decay, args.lr)
+    model, train_time = train(model, features[idx_train], labels[idx_train], args.epochs, args.weight_decay, args.lr)
     acc_test = test(model, features[idx_test], labels[idx_test])
 
     print("Test accuracy: {:.4f},  pre-compute time: {:.4f}s, train time: {:.4f}s, total: {:.4f}s".format(acc_test, precompute_time, train_time, precompute_time+train_time))
@@ -57,12 +56,9 @@ def main(args):
 
 def train(model,
         train_features, train_labels,
-        val_features, val_labels,
         epochs=100, weight_decay=5e-6, lr=0.2):
     optimizer = optim.Adam(model.parameters(), lr=lr,
                            weight_decay=weight_decay)
-    best_acc_val = 0.
-    best_model_dict = None
     t = perf_counter()
 
     for epoch in range(epochs):
@@ -72,15 +68,7 @@ def train(model,
         loss_train = F.cross_entropy(output, train_labels)
         loss_train.backward()
         optimizer.step()
-        with torch.no_grad():
-            model.eval()
-            output = model(val_features)
-            acc_val = accuracy(output, val_labels)
-        if acc_val > best_acc_val:
-            best_acc_val = acc_val
-            best_model_dict = model.state_dict()
     train_time = perf_counter()-t
-    model.load_state_dict(best_model_dict)
     return model, train_time
 
 
@@ -105,4 +93,4 @@ accu_acc = np.array(accu_acc)
 acc_mean, acc_std = accu_acc.mean(), accu_acc.std()
 
 print('='*20)
-print(f'Test accuracy of {args.trials} runs: mean {acc_mean:.5f}, std {acc_std:.5f}')
+print(f'Dataset: {args.dataset} Test accuracy of {args.trials} runs: mean {acc_mean:.5f}, std {acc_std:.5f}')
