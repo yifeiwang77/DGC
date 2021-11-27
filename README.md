@@ -3,7 +3,7 @@
 [![made-with-python](https://img.shields.io/badge/Made%20with-Python-red.svg)](#python)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) 
 
-Authors: [Yifei Wang](https://scholar.google.com.tw/citations?user=sNL8SSoAAAAJ&hl=en), [Yisen Wang](https://yisenwang.github.io/), [Jiansheng Yang](http://english.math.pku.edu.cn/peoplefaculty/64.html), [Zhouchen Lin](https://zhouchenlin.github.io/)
+Authors: [Yifei Wang](https://yifeiwang77.github.io/), [Yisen Wang](https://yisenwang.github.io/), [Jiansheng Yang](http://english.math.pku.edu.cn/peoplefaculty/64.html), [Zhouchen Lin](https://zhouchenlin.github.io/)
 
 ## Overview
 This repo contains an example implementation of the **Decoupled Graph Convolution (DGC)** model, described in the NeurIPS 2021 paper [Dissecting the Diffusion Process in Linear Graph Convolutional Networks](https://arxiv.org/abs/2102.10739).
