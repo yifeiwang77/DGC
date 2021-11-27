@@ -10,12 +10,12 @@ This repo contains an example implementation of the **Decoupled Graph Convolutio
 
 DGC, similar to [SGC](https://github.com/Tiiiger/SGC), removes the nonlinearities and collapes the weight matrices in Graph Convolutional Networks (GCNs) and is essentially a **linear GCN**. 
 
-Motivated by the dissection of SGC's limitations from a continuous perspective, DGC further ***decouples*** the  terminal time $T\in\mathbb{R}$ and propagation steps $K\in\mathbb{N}$ as two free hyperparameters. 
+Motivated by the dissection of SGC's limitations from a continuous perspective, DGC further ***decouples*** the  terminal time **T** and propagation steps **K** as two free hyperparameters. 
 In this way, DGC overcomes SGC's limitations and **improves SGC by a large margin**, making it even comparable to state-of-the-art nonlinear GCNs. Meanwhile, as a linear GCN, DGC is very memory-efficient and saves much training time. 
 
 This repo contains the implementation of DGC for citation networks (Cora, Citeseer, and Pubmed) and the performance is shown below. All experiments are conducted with a single NVIDIA GTX 1080ti GPU.
 
-Dataset | Acc (%) | $T$ (diffusion time) | $K$ (steps) | Training Time
+Dataset | Acc (%) | **T** (diffusion time) | **K** (steps) | Training Time
 :------:|:-----------:|:-------:|:-----------:|:-----------:|
 Cora    |83.3 ± 0.0 | 5.27  | 250 | 0.37s 
 Citeseer|73.3 ± 0.1| 3.78 | 300 | 0.86s 
