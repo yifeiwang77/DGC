@@ -1,5 +1,5 @@
-% torch
+torch
 numpy
 scipy
-networkx==1.11
+networkx>=2.6
 torch-geometric
