@@ -2,3 +2,4 @@
 numpy
 scipy
 networkx==1.11
+torch-geometric
